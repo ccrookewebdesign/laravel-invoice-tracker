@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-login here
+Content here
 @endsection
