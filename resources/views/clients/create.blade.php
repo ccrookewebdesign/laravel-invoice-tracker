@@ -4,38 +4,37 @@
   <h2>New Client</h2>
   <div class="flex">
     <div class="w-1/2">
-      <form action="{{ route('clients.update', $client) }}" method="POST">
-      @method('PATCH')
+      <form action="{{ route('clients.store') }}" method="POST">
       @csrf
       <div class="mb-3">
         <input type="text"
           name="client_name"
           placeholder="Client Name*"
-          value="{{ old('client_name', $client->client_name) }}"
+          value="{{ old('client_name') }}"
           class="{{ $errors->has('client_name') ? 'input-error' : ''}}">
       </div>
       <div class="mb-3">
         <input type="text"
           name="short_name"
           placeholder="Client Short Name*"
-          value="{{ old('short_name', $client->short_name) }}"
+          value="{{ old('short_name') }}"
           class="{{ $errors->has('short_name') ? 'input-error' : ''}}">
       </div>
       <div class="mb-3">
-        <input type="text" name="address_1" placeholder="Address" value="{{ old('address_1', $client->address1) }}">
+        <input type="text" name="address_1" placeholder="Address" value="{{ old('address_1') }}">
       </div>
       <div class="mb-3">
-        <input type="text" name="address_2" value="{{ old('address_2', $client->address_2) }}">
+        <input type="text" name="address_2" value="{{ old('address_2') }}">
       </div>
       <div class="mb-3">
-        <input type="text" name="city" placeholder="City"  value="{{ old('city', $client->city) }}">
+        <input type="text" name="city" placeholder="City"  value="{{ old('city') }}">
       </div>
       <div class="mb-3 flex">
         <div class="w-1/2 pr-1">
-          <input type="text" name="state" placeholder="State"  value="{{ old('state', $client->state) }}">
+          <input type="text" name="state" placeholder="State"  value="{{ old('state') }}">
         </div>
         <div class="w-1/2 pl-1">
-          <input type="text" name="country" placeholder="Country" value="{{ old('country', $client->country) }}">
+          <input type="text" name="country" placeholder="Country" value="{{ old('country') }}">
         </div>
       </div>
       <div class="mb-3 flex">
@@ -43,14 +42,14 @@
           <input type="text"
             name="contact"
             placeholder="Contact*"
-            value="{{ old('contact', $client->contact) }}"
+            value="{{ old('contact') }}"
             class="{{ $errors->has('contact') ? 'input-error' : ''}}">
         </div>
         <div class="w-1/2 pl-1">
           <input type="email"
             name="email"
             placeholder="Email*"
-            value="{{ old('email', $client->email) }}"
+            value="{{ old('email') }}"
             class="{{ $errors->has('email') ? 'input-error' : ''}}">
         </div>
       </div>
@@ -59,14 +58,14 @@
           <input type="text"
             name="phone"
             placeholder="Phone*"
-            value="{{ old('phone', $client->phone) }}"
+            value="{{ old('phone') }}"
             class="{{ $errors->has('phone') ? 'input-error' : ''}}">
         </div>
         <div class="w-1/2 pl-1">
           <input type="text"
             name="website"
             placeholder="Website*"
-            value="{{ old('website', $client->website) }}"
+            value="{{ old('website') }}"
             class="{{ $errors->has('website') ? 'input-error' : ''}}">
         </div>
       </div>
@@ -75,14 +74,14 @@
           <input type="text" 
             name="hour_rate"
             placeholder="Hour Rate*"
-            value="{{ old('hour_rate', $client->hour_rate) }}"
+            value="{{ old('hour_rate') }}"
             class="{{ $errors->has('hour_rate') ? 'input-error' : ''}}">
         </div>
         <div class="w-1/2 pl-1">
           <input type="text"
             name="half_hour_rate"
             placeholder="Half Hour Rate*"
-            value="{{ old('half_hour_rate', $client->half_hour_rate) }}"
+            value="{{ old('half_hour_rate') }}"
             class="{{ $errors->has('half_hour_rate') ? 'input-error' : ''}}">
         </div>
       </div>

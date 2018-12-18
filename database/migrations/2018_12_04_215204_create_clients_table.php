@@ -9,8 +9,8 @@ class CreateClientsTable extends Migration {
   public function up() {
     Schema::create('clients', function (Blueprint $table) {
       $table->increments('id');
-      $table->string('client_name');
-      $table->string('short_name');
+      $table->string('client_name')->unique();
+      $table->string('short_name')->unique();
       $table->string('address_1')->nullable();
       $table->string('address_2')->nullable();
       $table->string('city')->nullable();
@@ -19,7 +19,7 @@ class CreateClientsTable extends Migration {
       $table->string('contact');
       $table->string('email');
       $table->string('phone');
-      $table->string('website');
+      $table->string('website')->unique();
       $table->boolean('active')->default(true);
       $table->unsignedInteger('hour_rate')->default(65);
       $table->unsignedInteger('half_hour_rate')->default(35);

@@ -7,6 +7,7 @@
 
 html, body {
   height: 100%;
+  color: #606f7b;
 }
 
 h2 {
@@ -36,6 +37,41 @@ tr:nth-child(even) {
 
 tr, td {
   line-height: 1.75rem;
+}
+
+input[type="text"], input[type="email"] {
+  border: 1px solid #A3B4C2;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+  border-radius: .25rem;
+  appearance: none;
+  width: 100%;
+  padding: .5rem .75rem;
+  color: #606f7b;
+  line-height: 1.25;
+}
+
+input[type="text"]:focus, input[type="email"]:focus {
+  outline: 0; 
+  box-shadow: 0 0 0 3px rgba(52,144,220,0.2);
+}
+input[type="submit"].btn-primary {
+  border-radius: .25rem;
+  padding: .5rem 1rem;
+  color: #f9f9f9;
+  background-color: #137892;
+  cursor: pointer;
+}
+
+input[type="submit"].btn-primary:hover {
+  background-color: #10657A;
+}
+
+.input-error {
+  border-color: #990000!important;
+}
+
+.error {
+  color: #990000;
 }
 
 .row-total {

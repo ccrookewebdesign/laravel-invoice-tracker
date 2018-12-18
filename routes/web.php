@@ -11,18 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::name('clients.')->group(function(){
   Route::get('/clients', 'ClientsController@index')->name('index');
-  Route::get('/client/create', 'ClientsController@create')->name('create');
-  Route::get('/client/{client}', 'ClientsController@edit')->name('edit');
-  Route::post('/client/{client}', 'ClientsController@store')->name('store');
-  Route::put('/client/{client}', 'ClientsController@update')->name('update');
+  Route::get('/clients/create', 'ClientsController@create')->name('create');
+  Route::get('/clients/{client}/edit', 'ClientsController@edit')->name('edit');
+  Route::post('/clients', 'ClientsController@store')->name('store');
+  Route::patch('/clients/{client}', 'ClientsController@update')->name('update');
 });
