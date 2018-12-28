@@ -22,7 +22,7 @@
           class="{{ $errors->has('short_name') ? 'input-error' : ''}}">
       </div>
       <div class="mb-3">
-        <input type="text" name="address_1" placeholder="Address" value="{{ old('address_1', $client->address1) }}">
+        <input type="text" name="address_1" placeholder="Address" value="{{ old('address_1', $client->address_1) }}">
       </div>
       <div class="mb-3">
         <input type="text" name="address_2" value="{{ old('address_2', $client->address_2) }}">
@@ -88,7 +88,7 @@
       </div>
       <div class="mb-3 flex justify-between items-center">
         <div>
-          <input type="checkbox" value="1" name="active">
+          <input type="checkbox" value="1" name="active" @if(old('agreement', $client->active)) checked @endif>
           <label for="active">Client is active</label>
         </div>
         <div>

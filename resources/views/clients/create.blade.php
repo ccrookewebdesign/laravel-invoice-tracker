@@ -87,7 +87,7 @@
       </div>
       <div class="mb-3 flex justify-between items-center">
         <div>
-          <input type="checkbox" value="1" name="active">
+          <input type="checkbox" value="1" name="active" @if(old('active')) checked @endif>
           <label for="active">Client is active</label>
         </div>
         <div>

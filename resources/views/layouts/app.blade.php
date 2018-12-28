@@ -10,18 +10,14 @@
     <title>{{ config('app.name', 'Invoice Tracker') }}</title>
 
     <!-- Scripts -->
-    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
-
-    <!-- Styles -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="flex flex-col">
   <header>
     <div class="container h-full flex items-center">
-      <h2 class="mr-auto mt-3"><a href="index.cfm">Invoice Tracker</a></h2>
+      <h2 class="mr-auto mt-3"><a href="{{ route('home') }}">Invoice Tracker</a></h2>
       @include('layouts.partials.nav')
     </div>
   </header>

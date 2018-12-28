@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  font-family: 'Roboto';
+  font-weight: 300;
+  text-decoration: none;
+}
+
+html, body {
+  height: 100%;
+  color: #606f7b;
+  font-size: 1rem;
+}
+
+h2, p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: $primaryMedium;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.input-error {
+  border-color: $primaryError !important;
+}
+
+.error {
+  color: $primaryError;
+}
+
+.container {
+  width: 1060px;
+  margin: 0 auto;
+}

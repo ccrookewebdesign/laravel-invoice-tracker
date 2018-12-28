@@ -13,7 +13,7 @@ class ClientsController extends Controller {
   }
   
   public function index() {
-  
+
     $clients = Client::all();
 
     return view('clients.index', ['clients' => $clients]);
@@ -46,7 +46,7 @@ class ClientsController extends Controller {
 
   public function update(Request $request, Client $client) {
     
-    $data = $this->validateClient($request);
+    $data = $this->validateClient($request, $client->id);
     
     $data['active'] = $request->has('active'); 
 
@@ -56,19 +56,19 @@ class ClientsController extends Controller {
 
   }
 
-  private function validateClient(Request $request) {
+  private function validateClient(Request $request, $clientId = 0) {
     
-    $id = isset($request['id']) ? ','.$request['id'].',id':'';
+    $id = $clientId ? ',' . $clientId  : '';
     
     return $request->validate([
-      'client_name' => 'required|min:5|unique:clients'.$id,
-      'short_name' => 'required|min:2|unique:clients'.$id,
+      'client_name' => 'required|min:5|unique:clients,client_name'.$id,
+      'short_name' => 'required|min:2|unique:clients,short_name'.$id,
       'address_1' => 'nullable',
       'address_2' => 'nullable',
       'city' => 'nullable',
       'state' => 'nullable',
       'country' => 'nullable',
-      'contact' => 'required|min:10',
+      'contact' => 'required|min:5',
       'email' => 'required|email',
       'phone' => 'required|min:10',
       'website' => 'required|min:7',

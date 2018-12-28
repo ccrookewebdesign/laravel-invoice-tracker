@@ -1,0 +1,53 @@
+header {
+  @apply .bg-teal-darkest;
+  height: 70px;
+  color: $primaryWhiteFont;
+
+  a {
+    color: $primaryWhiteFont;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+nav {
+  a {
+    color: $primaryWhiteFont;
+    text-decoration: none;
+    padding: .5rem .75rem;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $primaryWhiteFont;
+      text-decoration: none;
+    }
+  }
+
+  div {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 .5rem;
+
+    &:last-of-type {
+      padding-right: 0;
+    }
+
+    &:hover, .active {
+      background-color: $primaryMedium;
+    }
+  }
+
+}
+
+#subheader {
+  background-color: $primaryMedium;
+  height: 45px;
+  color: $primaryWhiteFont;
+
+  a {
+    color: $primaryWhiteFont;
+  }
+}
