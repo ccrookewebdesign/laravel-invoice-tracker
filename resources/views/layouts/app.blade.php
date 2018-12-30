@@ -35,6 +35,19 @@
   </div>
   <div class="flex-auto py-6">
     <div class="container"> 
+      
+      @if (flash_isset())
+        <?php $flash_msg = get_flash_and_clear(); ?>
+        <div class="flex alert {{ $flash_msg['type'] }}">
+          {{ $flash_msg['message'] }}
+
+          <button type="button" class="close ml-auto text-grey-lightest" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+      @endif
+
       @yield('content')
     </div>  
   </div>

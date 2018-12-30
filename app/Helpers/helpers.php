@@ -25,6 +25,14 @@ function flash($message, $type, $title = null, $is_modal = true){
   Session::put('flash_msg', compact('message', 'type', 'is_modal', 'title', 'icon'));
 }
 
+function get_flash_and_clear(){
+  return Session::pull('flash_msg', false);
+}
+
+function flash_isset(){
+  return Session::exists('flash_msg');
+}
+
 
 function client_ip(){
   return \Illuminate\Support\Facades\Request::ip();

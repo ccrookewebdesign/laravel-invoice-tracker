@@ -632,6 +632,14 @@ a:hover {
   color: #c60000;
 }
 
+.success {
+  background: #137892;
+  padding: .5rem 1rem;
+  margin-bottom: 1.5rem;
+  color: #f3f3f3;
+  font-size: 1.15rem;
+}
+
 .container {
   width: 1060px;
   margin: 0 auto;

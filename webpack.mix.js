@@ -9,4 +9,4 @@ mix.js('resources/js/app.js', 'public/js')
   });
   //.tailwind();
 
-mix.disableSuccessNotifications();
+//mix.disableSuccessNotifications();

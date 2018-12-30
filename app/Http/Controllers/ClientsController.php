@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
 
 use App\Client;
 
@@ -15,7 +16,7 @@ class ClientsController extends Controller {
   public function index() {
 
     $clients = Client::all();
-
+    
     return view('clients.index', ['clients' => $clients]);
 
   }
@@ -28,13 +29,18 @@ class ClientsController extends Controller {
 
   public function store(Request $request) {
   
-    $data = $this->validateClient($request);
+    $v = Validator::make($request->all(), []);
+
+    $v = Client::validator($v);
+    $data = $v->validate();
 
     $data['active'] = $request->has('active'); 
 
     Client::create($data);
 
-    return redirect(route('clients.index'));//->flash("Affiliate added")
+    //session()->flash("flash_msg", "Client added");
+
+    return redirect(route('clients.index'))->flash("Client added");
 
   }
 
@@ -46,36 +52,19 @@ class ClientsController extends Controller {
 
   public function update(Request $request, Client $client) {
     
-    $data = $this->validateClient($request, $client->id);
-    
+    $v = Validator::make($request->all(), []);
+
+    $v = Client::validator($v, $client->id);
+    $data = $v->validate();
+
     $data['active'] = $request->has('active'); 
 
     $client->update($data);
-    
-    return redirect(route('clients.index'));//->flash("Affiliate added")
 
-  }
+    //session()->flash("flash_msg", "Client updated");
+    
+    return redirect(route('clients.index'))->flash("Client updated");
 
-  private function validateClient(Request $request, $clientId = 0) {
-    
-    $id = $clientId ? ',' . $clientId  : '';
-    
-    return $request->validate([
-      'client_name' => 'required|min:5|unique:clients,client_name'.$id,
-      'short_name' => 'required|min:2|unique:clients,short_name'.$id,
-      'address_1' => 'nullable',
-      'address_2' => 'nullable',
-      'city' => 'nullable',
-      'state' => 'nullable',
-      'country' => 'nullable',
-      'contact' => 'required|min:5',
-      'email' => 'required|email',
-      'phone' => 'required|min:10',
-      'website' => 'required|min:7',
-      'hour_rate' => 'required|numeric',
-      'half_hour_rate' => 'required|numeric'
-    ]);
-      
   }
 
 }

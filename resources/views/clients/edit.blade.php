@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <h2>New Client</h2>
+  <h2>Edit Client</h2>
   <div class="flex">
     <div class="w-1/2">
       <form action="{{ route('clients.update', $client) }}" method="POST">
