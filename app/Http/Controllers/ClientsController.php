@@ -38,8 +38,6 @@ class ClientsController extends Controller {
 
     Client::create($data);
 
-    //session()->flash("flash_msg", "Client added");
-
     return redirect(route('clients.index'))->flash("Client added");
 
   }
@@ -61,8 +59,6 @@ class ClientsController extends Controller {
 
     $client->update($data);
 
-    //session()->flash("flash_msg", "Client updated");
-    
     return redirect(route('clients.index'))->flash("Client updated");
 
   }

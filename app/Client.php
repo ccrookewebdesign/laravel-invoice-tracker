@@ -9,7 +9,7 @@ class Client extends Model {
   
   protected $guarded = [];
 
-  static public function validator(Validator $v, $clientId = 0): Validator {
+  static public function validator(Validator $v, int $clientId = 0): Validator {
     $id = $clientId ? ',' . $clientId  : '';
 
     $v->addRules([ 
@@ -19,6 +19,7 @@ class Client extends Model {
       'address_2' => 'nullable',
       'city' => 'nullable',
       'state' => 'nullable',
+      'postal_code' => 'nullable',
       'country' => 'nullable',
       'contact' => 'required|min:5',
       'email' => 'required|email',

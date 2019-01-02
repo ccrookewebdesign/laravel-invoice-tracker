@@ -1,11 +1,8 @@
-@extends('layouts.app')
-
-@section('content')
-  <h2>New Client</h2>
+<template>
+<div>
   <div class="flex">
     <div class="w-1/2">
-      <form action="{{ route('clients.store') }}" method="POST">
-      @csrf
+      <!-- <form action="{{ route('clients.store') }}" method="POST"> -->
       <div class="mb-3">
         <input type="text"
           name="client_name"
@@ -13,7 +10,7 @@
           value="{{ old('client_name') }}"
           class="{{ $errors->has('client_name') ? 'input-error' : ''}}">
       </div>
-      <div class="mb-3">
+      <!-- <div class="mb-3">
         <input type="text"
           name="short_name"
           placeholder="Client Short Name*"
@@ -26,17 +23,12 @@
       <div class="mb-3">
         <input type="text" name="address_2" value="{{ old('address_2') }}">
       </div>
-      <div class="mb-3 flex">
-        <div class="w-1/2 pr-1">
-          <input type="text" name="city" placeholder="City"  value="{{ old('city') }}">
-        </div>
-        <div class="w-1/2 pl-1">
-          <input type="text" name="state" placeholder="State"  value="{{ old('state') }}">
-        </div>
+      <div class="mb-3">
+        <input type="text" name="city" placeholder="City"  value="{{ old('city') }}">
       </div>
       <div class="mb-3 flex">
         <div class="w-1/2 pr-1">
-          <input type="text" name="postal_code" placeholder="Postal Code"  value="{{ old('postal_code') }}">
+          <input type="text" name="state" placeholder="State"  value="{{ old('state') }}">
         </div>
         <div class="w-1/2 pl-1">
           <input type="text" name="country" placeholder="Country" value="{{ old('country') }}">
@@ -89,7 +81,7 @@
             value="{{ old('half_hour_rate') }}"
             class="{{ $errors->has('half_hour_rate') ? 'input-error' : ''}}">
         </div>
-      </div>
+      </div> -->
       <div class="mb-3 flex justify-between items-center">
         <div>
           <input type="checkbox" value="1" name="active" @if(old('active')) checked @endif>
@@ -102,14 +94,32 @@
       
     </div>
     <div class="w-1/2 ml-6">
-      @if ($errors->any())
+      <!-- @if ($errors->any())
         <div class="error">
           <h3 class="mb-4">Please fill in all required fields</h3>
           @foreach ($errors->all() as $error)
             <p>{{ $error }}</p>
           @endforeach
         </div>
-      @endif
+      @endif -->
     </div>
   </div>
-@endsection
+</div>
+</template>
+
+<script> 
+export default {
+  data() {
+    return {
+      client: {
+        client_name: '',
+        short_name: '',
+        
+      }
+    };
+  }
+};
+</script>
+
+<style scoped>
+</style>

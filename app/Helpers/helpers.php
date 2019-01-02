@@ -34,11 +34,11 @@ function flash_isset(){
 }
 
 
-function client_ip(){
+function client_ip(): string {
   return \Illuminate\Support\Facades\Request::ip();
 }
 
-function get_rand(array $list){
+function get_rand(array $list): array {
   shuffle($list);
 
   return array_first($list);
@@ -91,7 +91,7 @@ function carbon($date, $allow_null = false){
   }
 }
 
-function format_date($date, $format = 'date'){
+function format_date($date, string $format = 'date'): string {
   if(!($date instanceof Carbon)){
     $date = carbon($date, true);
   }
@@ -130,7 +130,7 @@ function humanize($str){
   return title_case($str);
 }
 
-function create_nested_array($arr, $keys, $nested_name = 'details'){
+function create_nested_array($arr, $keys, $nested_name = 'details'): array {
   if(!isset($arr[$nested_name])){
     $arr[$nested_name] = [];
   }
@@ -154,7 +154,7 @@ function create_nested_array($arr, $keys, $nested_name = 'details'){
 /**
  * Current domain name WITHOUT the subdomain
  */
-function get_top_level_domain(){
+function get_top_level_domain(): string {
   $hostname = app()->runningInConsole() ? parse_url(config('app.url'), PHP_URL_HOST) : app("request")->getHost();
 
   if(filter_var($hostname, FILTER_VALIDATE_IP)){
@@ -173,7 +173,7 @@ function get_top_level_domain(){
 /**
  * Domain used for setting cookie scope
  */
-function get_cookie_domain(){
+function get_cookie_domain(): string {
   $tld = get_top_level_domain();
   if(count(explode('.', $tld)) === 2){
     return '.' . $tld;
@@ -201,5 +201,3 @@ function url_normalize(string $url = null): string{
     }
   }
 }
-
-

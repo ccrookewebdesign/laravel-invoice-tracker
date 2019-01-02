@@ -27,12 +27,17 @@
       <div class="mb-3">
         <input type="text" name="address_2" value="{{ old('address_2', $client->address_2) }}">
       </div>
-      <div class="mb-3">
-        <input type="text" name="city" placeholder="City"  value="{{ old('city', $client->city) }}">
+      <div class="mb-3 flex">
+        <div class="w-1/2 pr-1">
+          <input type="text" name="city" placeholder="City"  value="{{ old('city', $client->city) }}">  
+        </div>
+        <div class="w-1/2 pl-1">
+          <input type="text" name="state" placeholder="State"  value="{{ old('state', $client->state) }}">
+        </div>
       </div>
       <div class="mb-3 flex">
         <div class="w-1/2 pr-1">
-          <input type="text" name="state" placeholder="State"  value="{{ old('state', $client->state) }}">
+          <input type="text" name="postal_code" placeholder="Postal Code"  value="{{ old('postal_code', $client->postal_code) }}">
         </div>
         <div class="w-1/2 pl-1">
           <input type="text" name="country" placeholder="Country" value="{{ old('country', $client->country) }}">
